@@ -31,9 +31,9 @@ pip install -r requirements.txt
 <a name="usage"></a>
 ## Usage
 
-You can run the main script with various settings. Below is an example:
+You can test the performance of the trained models by executing these commands on the terminal:
 
-### Running GCN with PGD Attack on Cora and Citeseer Datasets
+### Evaluating the performance of trained adversarially robust GLTs for Cora and Citeseer Datasets attacked by PGD attack
 ```
 python main_test.py --dataset cora --embedding-dim 1433 512 7 --attack_name pgd --ptb_rate 0.05
 python main_test.py --dataset cora --embedding-dim 1433 512 7 --attack_name pgd --ptb_rate 0.1
@@ -67,3 +67,13 @@ Here are the baseline accuracies for GCN on the Cora and Citeseer datasets under
 | 0.1               | 73.96    |
 | 0.15              | 74.62    |
 | 0.2               | 73.52    |
+
+You can also train the models by executing the following commands on the terminal:
+
+### Training adversarially robust GLTs for Cora Dataset
+```
+ python main_train.py --dataset cora --embedding-dim 1433 512 7 --lr 0.008 --weight-decay 8e-5 --pruning_percent_wei 0.2 --pruning_percent_adj 0.05 --total_epoch 10 --s1 1e-2 --s2 1e-2 --init_soft_mask_type all_one --attack_name mettack --ptb_rate 0.05 --k 30 --alpha 1 --beta 0.01 --gamma 1 --alpha_fix_mask 1 --gamma_fix_mask 1
+
+
+
+```
