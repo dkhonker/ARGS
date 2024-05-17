@@ -20,7 +20,7 @@ warnings.filterwarnings('ignore')
 import dgl
 import scipy.sparse as sp
 from pathlib import Path
-from model.MLP import MLP
+#from model.MLP import MLP
 from utils_self_learning import *
 
 class MLP(nn.Module):
