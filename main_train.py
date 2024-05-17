@@ -23,6 +23,18 @@ from pathlib import Path
 from model.MLP import MLP
 from utils_self_learning import *
 
+class MLP(nn.Module):
+    def __init__(self, input_size, n_class, n_hidden):
+        super(MLP, self).__init__()
+        self.fc1 = nn.Linear(input_size, n_hidden)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(n_hidden, n_class)
+
+    def forward(self, x):
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        return out
 
 def normalize_feature(mx):
     """Row-normalize sparse matrix or dense matrix
